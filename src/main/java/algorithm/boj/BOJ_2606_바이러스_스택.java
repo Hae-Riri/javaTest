@@ -1,11 +1,12 @@
-package boj;
+package algorithm.boj;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
+import java.util.Stack;
 
-public class BOJ_2606_바이러스_재귀 {
+public class BOJ_2606_바이러스_스택 {
     static int n;
     static LinkedList<Integer> adj[];
     static boolean[] visit;
@@ -30,20 +31,23 @@ public class BOJ_2606_바이러스_재귀 {
             adj[Integer.parseInt(splits[1]) - 1].add(Integer.parseInt(splits[0]) - 1);
         }
 
-        dfs(0);
+        Stack<Integer> stack = new Stack<>();
+        stack.add(0);
+        visit[0] = true;
 
-        System.out.println(answer);
-    }
+        while(!stack.isEmpty()) {
+            Integer pop = stack.pop();
 
-    static void dfs(int v) {
-        visit[v] = true;
-
-        for(int i = 0; i < adj[v].size(); i++) {
-            int num = adj[v].get(i);
-            if(!visit[num]) {
-                dfs(num);
-                answer++;
+            for(int i = 0; i < adj[pop].size(); i++) {
+                int num = adj[pop].get(i);
+                if(!visit[num]) {
+                    stack.add(num);
+                    visit[num] = true;
+                    answer++;
+                }
             }
         }
+
+        System.out.println(answer);
     }
 }
