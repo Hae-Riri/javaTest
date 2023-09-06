@@ -1,4 +1,4 @@
-package algorithm.search;
+package algorithm.basic.search;
 
 import java.util.LinkedList;
 
