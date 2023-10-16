@@ -1,3 +1,4 @@
+package algorithm;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Main {
+public class Main2 {
     static int n, k;
     static int[][] arr;
     static int [] dx = {-1,1, 0, 0};
@@ -107,12 +108,12 @@ public class Main {
 
 
             //회전영역 이외의 부분들 땡겨오기
-//            for(int j = c; j < n - r*c + c; j++) {
-//                arr[c][j-c] = arr[r-1][j];
-//            }
-			for(int j = c; j<n; ++j){
-			arr[c][j-c] = arr[r-1][j];
-		}
+            for(int j = c; j < n - r*c + c; j++) {
+                arr[c][j-c] = arr[r-1][j];
+            }
+//			for(int j = c; j<n; ++j){
+//			arr[c][j-c] = arr[r-1][j];
+//		}
 
             System.out.println("회전 이외의 부분을 땡겨온 결과 ");
             for(int i = 0; i < n; i++) {
@@ -251,3 +252,4 @@ public class Main {
     }
 
 }
+
